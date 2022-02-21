@@ -10,14 +10,13 @@
   </div>
 </template>
 <style>
-  #nav {
-    background: violet;
-    text-align: center
-  }
+#nav {
+  background: violet;
+  text-align: center;
+}
 
-  #nav>a {
-    display: inline;
-    padding: 5px 10px;
-  }
-
+#nav > a {
+  display: inline;
+  padding: 5px 10px;
+}
 </style>

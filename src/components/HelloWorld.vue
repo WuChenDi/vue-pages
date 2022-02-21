@@ -5,14 +5,19 @@
 </template>
 
 <script>
-export default {
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'HelloWorld',
-  data () {
+  data() {
     return {
-      msg: 'hello world'
-    }
+      msg: {
+        type: String,
+        default: 'hello world'
+      }
+    };
   }
-}
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

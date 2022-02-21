@@ -12,25 +12,23 @@
 
 <script>
 export default {
-  data () {
-    return {}
+  data() {
+    return {};
   },
-  mounted () {
-    console.log(this)
-    console.log(this.$router)
+  mounted() {
+    console.log(this);
+    console.log(this.$router);
   }
-}
-
+};
 </script>
 <style>
-  #nav {
-    background: cadetblue;
-    text-align: center
-  }
+#nav {
+  background: cadetblue;
+  text-align: center;
+}
 
-  #nav>a {
-    display: inline;
-    padding: 5px 10px;
-  }
-
+#nav > a {
+  display: inline;
+  padding: 5px 10px;
+}
 </style>
