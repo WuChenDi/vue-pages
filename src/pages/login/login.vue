@@ -3,8 +3,9 @@
     <router-link to="/">page1</router-link>
     <router-link to="/page2">page2</router-link>
     <br />
+    <br />
     <div>
-      <a href="index.html">跳转新的页面</a>
+      <a href="index.html">跳转新的页面 index.html</a>
     </div>
     <router-view />
   </div>
