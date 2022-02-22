@@ -10,27 +10,27 @@
   </div>
 </template>
 
-<script>
-export default {
-  data () {
-    return {}
-  },
-  mounted () {
-    console.log(this)
-    console.log(this.$router)
-  }
-}
+<script lang="ts">
+import Vue from 'vue';
 
+export default Vue.extend({
+  data() {
+    return {};
+  },
+  mounted() {
+    console.log(this);
+    console.log(this.$router);
+  }
+});
 </script>
 <style>
-  #nav {
-    background: cadetblue;
-    text-align: center
-  }
+#nav {
+  background: cadetblue;
+  text-align: center;
+}
 
-  #nav>a {
-    display: inline;
-    padding: 5px 10px;
-  }
-
+#nav > a {
+  display: inline;
+  padding: 5px 10px;
+}
 </style>

@@ -1,12 +1,12 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Page from '../views/login/page1.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Page from '@/views/login/page1.vue';
 
-Vue.use(Router)
+Vue.use(Router);
 
 export default new Router({
   mode: 'history',
-  base: process.env.BASE_URL,
+  base: '/',
   routes: [
     {
       path: '/',
@@ -22,4 +22,4 @@ export default new Router({
       component: () => import(/* webpackChunkName: "login-about" */ '../views/login/page2.vue')
     }
   ]
-})
+});

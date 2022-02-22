@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "build-index": "vue-cli-service build index",
     "build-ui": "vue-cli-service build ui",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "fix": "vue-cli-service lint --fix src/**/*.*"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -16,11 +17,18 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/eslint-config-standard": "^5.1.2",
+    "@vue/eslint-config-typescript": "^7.0.0",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
@@ -30,20 +38,63 @@
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.2",
     "sass-resources-loader": "^2.1.1",
+    "typescript": "~4.1.5",
     "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,
     "env": {
-      "node": true
+      "browser": true,
+      "es6": true
     },
     "extends": [
       "plugin:vue/essential",
-      "@vue/standard"
+      "@vue/standard",
+      "@vue/typescript/recommended"
     ],
-    "rules": {},
     "parserOptions": {
-      "parser": "babel-eslint"
+      "ecmaVersion": 2020
+    },
+    "globals": {
+      "wx": true,
+      "qq": true,
+      "WWOpenData": true,
+      "request": true
+    },
+    "rules": {
+      "space-before-function-paren": "off",
+      "quotes": [
+        2,
+        "single",
+        {
+          "allowTemplateLiterals": true
+        }
+      ],
+      "semi": [
+        2,
+        "always"
+      ],
+      "indent": [
+        2,
+        2,
+        {
+          "SwitchCase": 1
+        }
+      ],
+      "comma-dangle": [
+        2,
+        "never"
+      ],
+      "prefer-const": "off",
+      "dot-notation": "off",
+      "no-prototype-builtins": "off",
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-empty-function": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-this-alias": "off",
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-extra-semi": "off"
     }
   },
   "browserslist": [
