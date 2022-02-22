@@ -10,8 +10,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   data() {
     return {};
   },
@@ -19,7 +21,7 @@ export default {
     console.log(this);
     console.log(this.$router);
   }
-};
+});
 </script>
 <style>
 #nav {
