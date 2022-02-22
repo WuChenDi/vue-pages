@@ -5,7 +5,7 @@
     <br />
     <br />
     <div>
-      <a href="login.html">跳转新的页面 login.html</a>
+      <a href="login.html">这是index页面，跳转新的页面 login.html</a>
     </div>
     <router-view />
   </div>
