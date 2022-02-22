@@ -2,6 +2,8 @@
   <div id="nav">
     <router-link to="/">Home</router-link>
     <router-link to="/about">About</router-link>
+    <a href="/login/page1">a链接跳转回 login page1 页面</a>
+    <a href="/login/page2">a链接跳转回 login page2 页面</a>
     <br />
     <br />
     <div>

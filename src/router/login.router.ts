@@ -9,7 +9,7 @@ export default new Router({
   base: '/login',
   routes: [
     {
-      path: '/',
+      path: '/page1',
       name: 'page',
       component: Page
     },
@@ -19,7 +19,8 @@ export default new Router({
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "login-about" */ '../views/login/page2.vue')
+      component: () =>
+        import(/* webpackChunkName: "login-about" */ '../views/login/page2.vue')
     }
   ]
 });

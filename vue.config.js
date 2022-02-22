@@ -5,7 +5,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-  publicPath: './',
+  publicPath: '/',
   filenameHashing: true,
   pages: {
     index: {
@@ -44,7 +44,10 @@ module.exports = {
     port: 8081,
     historyApiFallback: {
       verbose: true,
-      rewrites: [{ from: '/login', to: '/login.html' }]
+      rewrites: [
+        { from: /^\/index\/.*$/, to: '/index.html' },
+        { from: /^\/login\/.*$/, to: '/login.html' }
+      ]
     }
   }
 };
