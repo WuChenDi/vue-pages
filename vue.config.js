@@ -32,11 +32,19 @@ module.exports = {
       .set('_c', resolve('src/components'))
       .end();
   },
+  // devServer: {
+  //   open: true,
+  //   host: 'localhost',
+  //   port: 8081,
+  //   https: false,
+  //   hotOnly: false
+  // }
   devServer: {
     open: true,
-    host: 'localhost',
     port: 8081,
-    https: false,
-    hotOnly: false
+    historyApiFallback: {
+      verbose: true,
+      rewrites: [{ from: '/login', to: '/login.html' }]
+    }
   }
 };
