@@ -8,6 +8,8 @@
     "build:report": "vue-cli-service build --report",
     "build:index": "vue-cli-service build index",
     "build:login": "vue-cli-service build login",
+    "inspect:dev": "vue inspect --mode=development > webpack.dev.js",
+    "inspect:prod": "vue inspect --mode=production > webpack.prod.js",
     "lint": "vue-cli-service lint",
     "fix": "vue-cli-service lint --fix src/**/*.*"
   },

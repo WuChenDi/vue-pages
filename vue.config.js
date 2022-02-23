@@ -9,7 +9,7 @@ function resolve(dir) {
 
 const codeVersion = process.env.code_version || '';
 const codePath = codeVersion ? '/' + codeVersion : '';
-const outputDir = 'dist' + codePath;
+// const outputDir = 'dist' + codePath;
 let publicPath = process.env.VUE_APP_COS_URL || '/' + codePath;
 if (publicPath.startsWith('//')) {
   publicPath = publicPath.slice(1);
@@ -35,15 +35,17 @@ let objectProject = {
 };
 
 let page = {};
+let outputDir = 'dist';
 let projectname = process.argv[3] || '';
 if (['production', 'development'].includes(process.env.NODE_ENV)) {
   page = objectProject;
 } else {
   page[projectname] = objectProject[projectname];
+  outputDir = `dist${projectname}`;
 }
 module.exports = {
   publicPath: '/',
-  outputDir: `dist${projectname}`,
+  outputDir,
   filenameHashing: true,
   pages: page,
   productionSourceMap: false,
@@ -124,12 +126,21 @@ module.exports = {
             reuseExistingChunk: true,
             enforce: true
           }
+          // 抽离node_modules下的库为一个chunk
+          // vendors: {
+          //   name: 'chunk-vendors',
+          //   test: /[\\/]node_modules[\\/]/,
+          //   chunks: 'initial',
+          //   priority: 2,
+          //   reuseExistingChunk: true,
+          //   enforce: true
+          // }
         }
       }
     };
 
-    // config.plugins.push(new CollectModules({ publicPath }));
     console.log(new CollectModules({ publicPath }));
+    // config.plugins.push(new CollectModules({ publicPath }));
   },
   chainWebpack: config => {
     // 删除默认的splitChunk
