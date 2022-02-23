@@ -5,8 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "build-index": "vue-cli-service build index",
-    "build-ui": "vue-cli-service build ui",
+    "build:report": "vue-cli-service build --report",
+    "build:index": "vue-cli-service build index",
+    "build:login": "vue-cli-service build login",
     "lint": "vue-cli-service lint",
     "fix": "vue-cli-service lint --fix src/**/*.*"
   },
