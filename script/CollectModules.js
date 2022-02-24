@@ -10,6 +10,9 @@ class CollectModules {
       compilation.hooks.htmlWebpackPluginAlterAssetTags.tap(
         this.constructor.name,
         htmlPluginData => {
+          const pageName = htmlPluginData.outputName.split('.')[0];
+          const CODE_VERSION = this.options.CODE_VERSION ? `-${this.options.CODE_VERSION}` : '';
+          const modulesFilesName = `modules-${pageName}${CODE_VERSION}.js`;
           const modules = {};
           modules.head = htmlPluginData.head || [];
           modules.body = htmlPluginData.body || [];
@@ -30,7 +33,7 @@ class CollectModules {
               item.attributes.src = src.substring(publicPath.length);
             }
           });
-          compilation.assets['modules.js'] = new ConcatSource(
+          compilation.assets[modulesFilesName] = new ConcatSource(
             'moduleLoaderLoadData(' + JSON.stringify(modules) + ');'
           );
           return htmlPluginData;

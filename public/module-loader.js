@@ -60,9 +60,9 @@ function setLoadVersion(version = 'master') {
 }
 
 function moduleLoaderLoad(version = 'master') {
-  let moduleJSFile = 'modules.js';
+  let moduleJSFile = 'modules-' + window.multiVersionConfigs.PAGES + '.js';
   if (window.multiVersionConfigs.NODE_ENV === 'production') {
-    moduleJSFile = 'modules-' + version + '.js';
+    moduleJSFile = 'modules-' + window.multiVersionConfigs.PAGES + '-' + version + '.js';
   }
   // 以JSONP的形式加载, 相对ajax请求json的好处是有缓存，且不用考虑跨域问题
   const body = document.getElementsByTagName('body')[0];

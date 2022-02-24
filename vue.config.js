@@ -7,7 +7,7 @@ function resolve(dir) {
   return path.join(__dirname, dir);
 }
 
-const codeVersion = process.env.code_version || '';
+const codeVersion = process.env.VUE_APP_CODE_VERSION || '';
 const codePath = codeVersion ? '/' + codeVersion : '';
 // const outputDir = 'dist' + codePath;
 let publicPath = process.env.VUE_APP_COS_URL || '/' + codePath;
@@ -44,7 +44,7 @@ if (['production', 'development'].includes(process.env.NODE_ENV)) {
   outputDir = `dist${projectname}`;
 }
 module.exports = {
-  publicPath: '/',
+  publicPath,
   outputDir,
   filenameHashing: true,
   pages: page,
@@ -139,8 +139,13 @@ module.exports = {
       }
     };
 
-    console.log(new CollectModules({ publicPath }));
-    // config.plugins.push(new CollectModules({ publicPath }));
+    // console.log(new CollectModules({ publicPath }));
+    config.plugins.push(
+      new CollectModules({
+        publicPath,
+        CODE_VERSION: process.env.VUE_APP_CODE_VERSION
+      })
+    );
   },
   chainWebpack: config => {
     // 删除默认的splitChunk
@@ -160,7 +165,7 @@ module.exports = {
   //   hotOnly: false
   // }
   devServer: {
-    open: true,
+    // open: true,
     port: 8081,
     historyApiFallback: {
       verbose: true,
