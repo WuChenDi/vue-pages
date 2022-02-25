@@ -139,7 +139,12 @@ module.exports = {
       }
     };
 
-    // console.log(new CollectModules({ publicPath }));
+    console.log(
+      new CollectModules({
+        publicPath,
+        CODE_VERSION: process.env.VUE_APP_CODE_VERSION
+      })
+    );
     config.plugins.push(
       new CollectModules({
         publicPath,
@@ -171,7 +176,8 @@ module.exports = {
       verbose: true,
       rewrites: [
         { from: /^\/index\/.*$/, to: '/index.html' },
-        { from: /^\/login\/.*$/, to: '/login.html' }
+        // { from: /^\/login\/.*$/, to: '/login.html' }
+        { from: /^\/login/, to: '/login.html' }
       ]
     }
   }

@@ -9,7 +9,7 @@ export default new Router({
   base: '/login',
   routes: [
     {
-      path: '/page1',
+      path: '/:accessToken*',
       name: 'page',
       component: Page
     },

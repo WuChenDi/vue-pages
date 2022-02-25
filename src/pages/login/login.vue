@@ -22,7 +22,7 @@ export default Vue.extend({
   },
   mounted() {
     console.log(this);
-    console.log(this.$router);
+    console.log(this.$route.params);
   }
 });
 </script>
