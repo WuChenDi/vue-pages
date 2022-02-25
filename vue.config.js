@@ -9,8 +9,8 @@ function resolve(dir) {
 
 const codeVersion = process.env.VUE_APP_CODE_VERSION || '';
 const codePath = codeVersion ? '/' + codeVersion : '';
-// const outputDir = 'dist' + codePath;
-let publicPath = process.env.VUE_APP_COS_URL || '/' + codePath;
+const outputDir = 'dist' + codePath;
+let publicPath = (process.env.VUE_APP_COS_URL || '/') + codePath;
 if (publicPath.startsWith('//')) {
   publicPath = publicPath.slice(1);
 }
@@ -35,13 +35,13 @@ let objectProject = {
 };
 
 let page = {};
-let outputDir = 'dist';
+// let outputDir = 'dist';
 let projectname = process.argv[3] || '';
 if (['production', 'development'].includes(process.env.NODE_ENV)) {
   page = objectProject;
 } else {
   page[projectname] = objectProject[projectname];
-  outputDir = `dist${projectname}`;
+  // outputDir = `dist${projectname}`;
 }
 module.exports = {
   publicPath,
