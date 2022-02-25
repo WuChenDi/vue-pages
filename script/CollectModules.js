@@ -1,3 +1,4 @@
+const chalk = require('chalk');
 const ConcatSource = require('webpack-sources').ConcatSource;
 
 class CollectModules {
@@ -13,6 +14,7 @@ class CollectModules {
           const pageName = htmlPluginData.outputName.split('.')[0];
           const CODE_VERSION = this.options.CODE_VERSION ? `-${this.options.CODE_VERSION}` : '';
           const modulesFilesName = `modules-${pageName}${CODE_VERSION}.js`;
+          console.log(chalk.red(`\r${pageName} 页面输出文件: `, modulesFilesName));
           const modules = {};
           modules.head = htmlPluginData.head || [];
           modules.body = htmlPluginData.body || [];
