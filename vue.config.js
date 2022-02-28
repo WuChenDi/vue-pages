@@ -1,5 +1,6 @@
 const path = require('path');
 const CollectModules = require('./script/CollectModules');
+// const BundlesizeWebpackPlugin = require('./script/bundlesize-webpack-plugin');
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -151,6 +152,7 @@ module.exports = {
         CODE_VERSION: process.env.VUE_APP_CODE_VERSION
       })
     );
+    // config.plugins.push(new BundlesizeWebpackPlugin({ sizeLimit: 3 }));
   },
   chainWebpack: config => {
     // 删除默认的splitChunk
