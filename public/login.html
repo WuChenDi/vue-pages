@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   </head>
   <body>
     <noscript>
       <strong>
-        We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please
-        enable it to continue.
+        We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work
+        properly without JavaScript enabled. Please enable it to continue.
       </strong>
     </noscript>
     <div id="app"></div>
@@ -19,6 +18,69 @@
       moduleLoaderInit({
         NODE_ENV: '<%= process.env.NODE_ENV %>',
         PAGES: 'login'
+      });
+      // 通过 PerformanceObserver 得到所有 long tasks 对象
+      let observer = new PerformanceObserver((list) => {
+        for (const entry of list.getEntries()) {
+          console.log(entry)
+        }
+      })
+      // 监听 long tasks
+      observer.observe({ entryTypes: ['longtask'] })
+      window.addEventListener('load', () => {
+        const {
+          connectEnd,
+          connectStart,
+          decodedBodySize,
+          domComplete,
+          domContentLoadedEventEnd,
+          domContentLoadedEventStart,
+          domInteractive,
+          domContentLoadEventEnd,
+          domainLookupEnd,
+          domainLookupStart,
+          duration,
+          encodedBodySize,
+          entryType,
+          fetchStart,
+          initiatorType,
+          loadEventEnd,
+          loadEventStart,
+          name,
+          nextHopProtocol,
+          redirectCount,
+          redirectEnd,
+          redirectStart,
+          requestStart,
+          responseEnd,
+          responseStart,
+          secureConnectionStart,
+          serverTiming = [],
+          startTime,
+          transferSize,
+          type,
+          unloadEventEnd,
+          unloadEventStart,
+          workerStart,
+          workerTiming = []
+        } = window.performance.getEntriesByType('navigation')[0];
+        console.log("performance info:");
+        console.log(" - report type: " + '<%= process.env.NODE_ENV %>');
+        console.log(' - DNS 解析耗时: ', domainLookupEnd - domainLookupStart);
+        console.log(' - TCP 连接耗时: ', connectEnd - connectStart);
+        console.log(' - SSL 安全连接耗时: ', connectEnd - secureConnectionStart);
+        console.log(' - 网络请求耗时 (TTFB): ', responseStart - requestStart);
+        console.log(' - 数据传输耗时: ', responseEnd - responseStart);
+        console.log(' - DOM 解析耗时: ', domInteractive - responseEnd);
+        console.log(' - 资源加载耗时: ', loadEventStart - domContentLoadedEventEnd);
+        console.log(' - First Byte时间: ', responseStart - domainLookupStart);
+        console.log(' - 白屏时间: ', responseEnd - fetchStart);
+        console.log(' - 首次可交互时间: ', domInteractive - fetchStart);
+        console.log(' - 页面完全加载时间: ', loadEventStart - fetchStart);
+        console.log(' - http 头部大小: ', transferSize - encodedBodySize);
+        console.log(' - 重定向次数: ', redirectCount);
+        console.log(' - 重定向耗时: ', redirectEnd - redirectStart);
+        console.log(" - details: window.performance.getEntriesByType");
       });
     </script>
     <!-- built files will be auto injected -->
