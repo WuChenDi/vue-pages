@@ -22,6 +22,12 @@ npm run serve
 
 ```sh
 npm run build
+
+cd ./dist/master
+
+npm i -g http-server
+
+http-server -c-1
 ```
 
 ### Run your tests

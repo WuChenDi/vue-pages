@@ -11,7 +11,9 @@
     </div>
     <br />
     <br />
-    <img src="~@/assets/loginLogo.png" alt="" />
+    <!-- <img src="~@/assets/logo.png" alt="" /> -->
+    <img :src="$t('message.logo')" alt="" />
+    <img :src="imgLogo[$i18n.locale]" alt="">
     <!-- <img src="~@/assets/logo.png.local" alt="" /> -->
     <br />
     <br />
@@ -31,10 +33,18 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import imgLogozh from '@/assets/logo.png';
+import imgLogoen from '@/assets/loginLogo.png';
 
 export default Vue.extend({
   data() {
-    return { langs: ['zh', 'en'] };
+    return {
+      langs: ['zh', 'en'],
+      imgLogo: {
+        zh: imgLogozh,
+        en: imgLogoen
+      }
+    };
   },
   mounted() {
     console.log(this);

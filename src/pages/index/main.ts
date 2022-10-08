@@ -9,12 +9,18 @@ Vue.use(VueI18n);
 const messages = {
   en: {
     message: {
-      hello: 'hello world'
+      hello: 'hello world',
+      // logo: '../../assets/loginLogo.png'
+      // ! 不可行, hash 会变
+      logo: '/img/loginLogo.451dd7b8.png'
     }
   },
   zh: {
     message: {
-      hello: '你好世界'
+      hello: '你好世界',
+      // logo: '../../assets/logo.png'
+      // ! 不可行, hash 会变
+      logo: '/img/logo.82b9c7a5.png'
     }
   }
 };
