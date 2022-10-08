@@ -9,7 +9,11 @@
     <div>
       <a href="/index.html">这是login页面，跳转新的页面 index.html</a>
     </div>
+    <br />
+    <br />
     <router-view />
+    <br />
+    <br />
   </div>
 </template>
 

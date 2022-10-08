@@ -9,6 +9,22 @@
     <div>
       <a href="/login.html">这是index页面，跳转新的页面 login.html</a>
     </div>
+    <br />
+    <br />
+    <img src="~@/assets/loginLogo.png" alt="" />
+    <!-- <img src="~@/assets/logo.png.local" alt="" /> -->
+    <br />
+    <br />
+    <select v-model="$i18n.locale">
+      <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">
+        {{ lang }}
+      </option>
+    </select>
+    <br />
+    <br />
+    {{ $t('message.hello') }}
+    <br />
+    <br />
     <router-view />
   </div>
 </template>
@@ -18,7 +34,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   data() {
-    return {};
+    return { langs: ['zh', 'en'] };
   },
   mounted() {
     console.log(this);

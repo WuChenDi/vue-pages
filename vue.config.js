@@ -139,13 +139,6 @@ module.exports = {
         }
       }
     };
-
-    console.log(
-      new CollectModules({
-        publicPath,
-        CODE_VERSION: process.env.VUE_APP_CODE_VERSION
-      })
-    );
     config.plugins.push(
       new CollectModules({
         publicPath,
@@ -156,7 +149,14 @@ module.exports = {
   },
   chainWebpack: config => {
     // 删除默认的splitChunk
-    config.optimization.delete('splitChunks');
+    // config.optimization.delete('splitChunks');
+    // config.module
+    //   .rule('local')
+    //   .test(/\.local$/)
+    //   // .test(/\.(png|jpe?g|gif|webp)(\?.*)?$/)
+    //   .use('assets-lang-loader')
+    //   .loader('./script/assets-lang-loader.js')
+    //   .end();
     // 添加别名
     config.resolve.alias
       .set('@', resolve('src'))
