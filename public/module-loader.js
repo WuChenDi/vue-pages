@@ -3,7 +3,7 @@ const MODULE_LOAD_BASE_URL = '/';
 
 function moduleLoaderAjax(url, token, onSuccess, onFailed) {
   const request = new XMLHttpRequest();
-  request.onreadystatechange = function (e) {
+  request.onreadystatechange = function(e) {
     if (request.readyState === 4) {
       if (request.status === 200) {
         let responseJson;
@@ -60,11 +60,9 @@ function setLoadVersion(version = 'master') {
 }
 
 function moduleLoaderLoad(version = 'master') {
-  const { PATH, PAGES, NODE_ENV } = window.multiVersionConfigs;
-  const path = PATH ? `${PATH}/` : '';
-  let moduleJSFile = `${path}modules-` + PAGES + '.js';
-  if (NODE_ENV === 'production') {
-    moduleJSFile = `${path}modules-` + PAGES + '-' + version + '.js';
+  let moduleJSFile = 'modules-' + window.multiVersionConfigs.PAGES + '.js';
+  if (window.multiVersionConfigs.NODE_ENV === 'production') {
+    moduleJSFile = 'modules-' + window.multiVersionConfigs.PAGES + '-' + version + '.js';
   }
   // 以JSONP的形式加载, 相对ajax请求json的好处是有缓存，且不用考虑跨域问题
   const body = document.getElementsByTagName('body')[0];
