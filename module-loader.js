@@ -60,14 +60,15 @@ function setLoadVersion(version = 'master') {
 }
 
 function moduleLoaderLoad(version = 'master') {
-  let moduleJSFile = 'modules-' + window.multiVersionConfigs.PAGES + '.js';
-  if (window.multiVersionConfigs.NODE_ENV === 'production') {
-    moduleJSFile = 'modules-' + window.multiVersionConfigs.PAGES + '-' + version + '.js';
+  const { PATH, PAGES, NODE_ENV } = window.multiVersionConfigs;
+  let moduleJSFile = 'modules-' + PAGES + '.js';
+  if (NODE_ENV === 'production') {
+    moduleJSFile = 'modules-' + PAGES + '-' + version + '.js';
   }
   // 以JSONP的形式加载, 相对ajax请求json的好处是有缓存，且不用考虑跨域问题
   const body = document.getElementsByTagName('body')[0];
   const hm = document.createElement('script');
-  hm.src = MODULE_LOAD_BASE_URL + moduleJSFile;
+  hm.src = PATH + MODULE_LOAD_BASE_URL + moduleJSFile;
   body.appendChild(hm);
 }
 
