@@ -4,9 +4,11 @@ import Page from '@/views/login/page1.vue';
 
 Vue.use(Router);
 
+const isDev = process.env.NODE_ENV === 'development';
+
 export default new Router({
   mode: 'history',
-  base: '/login',
+  base: `${isDev ? '' : process.env.VUE_APP_PAGES}/login`,
   routes: [
     {
       path: '/:accessToken*',
