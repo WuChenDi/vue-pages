@@ -16,6 +16,7 @@
     <script src="<%= process.env.VUE_APP_BASE_PATH %>/module-loader.js"></script>
     <script type="text/javascript">
       moduleLoaderInit({
+        PATH: '<%= process.env.VUE_APP_BASE_PATH %>',
         NODE_ENV: '<%= process.env.NODE_ENV %>',
         PAGES: 'index'
       });
