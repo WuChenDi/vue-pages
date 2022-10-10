@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      VUE_APP_BASE_PATH: /vue-pages
+      VUE_APP_BASE_PATH: //wuchendi.github.io/vue-pages
 
     strategy:
       matrix:
