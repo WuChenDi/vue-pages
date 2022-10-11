@@ -4,11 +4,9 @@ import Home from '@/views/Home.vue';
 
 Vue.use(Router);
 
-const isDev = process.env.NODE_ENV === 'development';
-
 export default new Router({
   mode: 'history',
-  base: `${isDev ? '/' : process.env.VUE_APP_PAGES}/`,
+  base: `${process.env.VUE_APP_PAGES}/`,
   routes: [
     {
       path: '/',

@@ -1,17 +1,15 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Page from '@/views/login/page1.vue';
+import Page from '@/views/login/page1';
 
 Vue.use(Router);
 
-const isDev = process.env.NODE_ENV === 'development';
-
 export default new Router({
   mode: 'history',
-  base: `${isDev ? '' : process.env.VUE_APP_PAGES}/login`,
+  base: `${process.env.VUE_APP_PAGES}/login`,
   routes: [
     {
-      path: '/:accessToken*',
+      path: '/page1/:accessToken*',
       name: 'page',
       component: Page
     },

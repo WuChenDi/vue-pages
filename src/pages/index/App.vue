@@ -2,12 +2,12 @@
   <div id="nav">
     <router-link to="/">Home</router-link>
     <router-link to="/about">About</router-link>
-    <a href="/login/page1">a链接跳转回 login page1 页面</a>
-    <a href="/login/page2">a链接跳转回 login page2 页面</a>
+    <a :href="`${pages}/login/page1`">a链接跳转回 login page1 页面</a>
+    <a :href="`${pages}/login/page2`">a链接跳转回 login page2 页面</a>
     <br />
     <br />
     <div>
-      <a href="/login.html">这是index页面，跳转新的页面 login.html</a>
+      <a :href="`${pages}/login/page1/index`">这是index页面，跳转新的页面 login.html</a>
     </div>
     <br />
     <br />
@@ -39,6 +39,7 @@ import imgLogoen from '@/assets/loginLogo.png';
 export default Vue.extend({
   data() {
     return {
+      pages: process.env.VUE_APP_PAGES,
       langs: ['zh', 'en'],
       imgLogo: {
         zh: imgLogozh,

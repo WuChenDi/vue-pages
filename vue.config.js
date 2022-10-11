@@ -11,7 +11,7 @@ function resolve(dir) {
 const codeVersion = process.env.VUE_APP_CODE_VERSION || '';
 const codePath = codeVersion ? '/' + codeVersion : '';
 const outputDir = 'dist' + codePath;
-let publicPath = process.env.VUE_APP_COS_URL + codePath;
+let publicPath = process.env.VUE_APP_COS_URL || '/' + codePath;
 if (publicPath.startsWith('//')) {
   publicPath = publicPath.slice(1);
 }
